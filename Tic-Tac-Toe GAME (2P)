@@ -1,0 +1,60 @@
+#include<iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main()
+{
+    vector<string> num;
+    num = { "□", "□", "□", "□", "□", "□", "□", "□", "□" };
+    
+    cout << num.at(0) << " " << num.at(1) << " " << num.at(2) << endl;
+    cout << num.at(3) << " " << num.at(4) << " " << num.at(5) << endl;
+    cout << num.at(6) << " " << num.at(7) << " " << num.at(8) << endl;
+    
+    string fname;
+    cout << "First player's name :" << endl;
+    cin >> fname;
+    
+    string sname;
+    cout << "Second player's name :" << endl;
+    cin >> sname;
+    
+    int turn = 0;
+    
+    while(true){
+   
+    int where;
+    if(turn % 2 == 0){
+    cout << "Where (" << fname << ") ?" << endl;;
+    cin >> where;
+    }
+    else{
+    cout << "Where (" << sname << ") ?" << endl;;
+    cin >> where;
+    }
+    
+    
+    
+    char fchar = fname.front();
+    char schar = sname.front();
+    if(turn % 2 == 0){
+    num.at(where -1) = fchar;
+    }
+    else{
+    num.at(where -1) = schar;
+    }
+    
+    
+    std::cout << "\033[2J\033[H" << std::flush;
+    
+    cout << num.at(0) << " " << num.at(1) << " " << num.at(2) << endl;
+    cout << num.at(3) << " " << num.at(4) << " " << num.at(5) << endl;
+    cout << num.at(6) << " " << num.at(7) << " " << num.at(8) << endl;
+    
+    turn ++;
+    
+    }
+    
+    return 0;
+}
